@@ -11,14 +11,4 @@ export class TeacherController {
   getTeacherByID() {
     return;
   }
-
-  @Get(':teacherId/students')
-  getStudents() {
-    return;
-  }
-
-  @Put(':teacherId/students/:studentId')
-  updateStudentTeacher() {
-    return;
-  }
 }
