@@ -5,7 +5,7 @@ import { FindTeacherResponseDto } from './dto/teacher.dto';
 export class TeacherController {
   @Get()
   getTeachers(): FindTeacherResponseDto[] {
-    return '全ての先生情報';
+    return;
   }
 
   @Get(':teacherId')

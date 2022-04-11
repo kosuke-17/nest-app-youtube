@@ -8,7 +8,7 @@ import {
 export class StudentTeacherController {
   @Get()
   getStudents(@Param('teacherId') teacherId: string): FindStudentResponseDto[] {
-    return `先生に紐づく全ての生徒情報: ${teacherId} `;
+    return;
   }
 
   @Put(':studentId')
@@ -16,6 +16,6 @@ export class StudentTeacherController {
     @Param('teacherId') teacherId: string,
     @Param('studentId') studentId: string,
   ): StudentResponseDto {
-    return `生徒を持つ先生を更新した: teacherId:${teacherId}, studentId:${studentId}`;
+    return;
   }
 }
