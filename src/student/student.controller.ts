@@ -1,10 +1,16 @@
 import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  CreateStudentDto,
+  FindStudentResponseDto,
+  UpdatesStudentDto,
+  StudentResponseDto,
+} from './dto/student.dto';
 
 @Controller('students')
 export class StudentController {
   @Get()
-  getStudents() {
-    return '全ての生徒情報';
+  getStudents(): FindStudentResponseDto[] {
+    return ['全ての生徒情報'];
   }
   @Get(':studentId')
   getStudentById(@Param('studentId') studentId: string) {
@@ -12,11 +18,14 @@ export class StudentController {
   }
 
   @Post()
-  createStudent(@Body() body) {
+  createStudent(@Body() body: CreateStudentDto): StudentResponseDto {
     return `生徒情報の作成: ${JSON.stringify(body)}`;
   }
   @Put(':studentId')
-  updateStudent(@Param('studentId') studentId: string, @Body() body) {
-    return `生徒情報の更新: ${studentId} `;
+  updateStudent(
+    @Param('studentId') studentId: string,
+    @Body() body: UpdatesStudentDto,
+  ): StudentResponseDto {
+    return `生徒情報の更新: ${studentId}, body:${JSON.stringify(body)}`;
   }
 }
