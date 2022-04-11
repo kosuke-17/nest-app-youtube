@@ -9,4 +9,9 @@ export class StudentService {
   getStudents(): FindStudentResponseDto[] {
     return this.students;
   }
+  getStudentById(studentId: string) {
+    return this.students.find((student: FindStudentResponseDto) => {
+      return student.id === studentId;
+    });
+  }
 }

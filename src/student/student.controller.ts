@@ -15,8 +15,10 @@ export class StudentController {
     return this.studentService.getStudents();
   }
   @Get(':studentId')
-  getStudentById(@Param('studentId') studentId: string) {
-    return `特定の生徒情報: ${studentId}`;
+  getStudentById(
+    @Param('studentId') studentId: string,
+  ): FindStudentResponseDto {
+    return this.studentService.getStudentById(studentId);
   }
 
   @Post()
