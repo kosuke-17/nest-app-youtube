@@ -38,6 +38,33 @@ export class StudentService {
           id: studentId,
           ...payload,
         };
+        return updateStudent;
+      } else return student;
+    });
+
+    this.students = updatedStudentList;
+
+    return updateStudent;
+  }
+
+  getStudentsByTeacherId(teacherId: string): FindStudentResponseDto[] {
+    return this.students.filter((student) => {
+      return student.teacher === teacherId;
+    });
+  }
+  updateStudentTeacher(
+    teacherId: string,
+    studentId: string,
+  ): StudentResponseDto {
+    let updateStudent: StudentResponseDto;
+
+    const updatedStudentList = this.students.map((student) => {
+      if (student.id == studentId) {
+        updateStudent = {
+          ...student,
+          teacher: teacherId,
+        };
+        return updateStudent;
       } else return student;
     });
 
