@@ -14,7 +14,7 @@ export class CreateStudentDto {
   name: string;
   teacher: string;
 }
-export class UpdatesStudentDto {
+export class UpdateStudentDto {
   name: string;
   teacher: string;
 }

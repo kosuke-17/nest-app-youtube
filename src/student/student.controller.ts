@@ -2,7 +2,7 @@ import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import {
   CreateStudentDto,
   FindStudentResponseDto,
-  UpdatesStudentDto,
+  UpdateStudentDto,
   StudentResponseDto,
 } from './dto/student.dto';
 import { StudentService } from './student.service';
@@ -23,13 +23,13 @@ export class StudentController {
 
   @Post()
   createStudent(@Body() body: CreateStudentDto): StudentResponseDto {
-    return;
+    return this.studentService.createStudent(body);
   }
   @Put(':studentId')
   updateStudent(
     @Param('studentId') studentId: string,
-    @Body() body: UpdatesStudentDto,
+    @Body() body: UpdateStudentDto,
   ): StudentResponseDto {
-    return;
+    return this.studentService.updateStudent(body, studentId);
   }
 }
